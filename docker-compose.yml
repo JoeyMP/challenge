@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    image: 'tenpo-challenge:latest'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/challenge-db
+      - SPRING_DATASOURCE_USERNAME=joey
+      - SPRING_DATASOURCE_PASSWORD=joey12345
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      - POSTGRES_USER=joey
+      - POSTGRES_PASSWORD=joey12345
+      - POSTGRES_DB=challenge-db
+    ports:
+      - "5433:5432"
