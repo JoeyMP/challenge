@@ -9,8 +9,8 @@
 1. run: mvn clean package
 2. run: docker-compose up
 
-## Steps to stop the app
-1. run: docker-compose down
+## Step to stop the app
+- run: docker-compose down
 
 ## Endpoints
 - http://localhost:8080/api/compute/6/8
